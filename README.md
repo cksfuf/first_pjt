@@ -83,7 +83,7 @@ def index(request):
 
 12. html 생성
 - 위 로직에서 정의한 html 파일 만들기
-- ! 탭 누르면 형태 완성되고, body 아래에 보여주고싶은 값 작성(<h1>{{result}}</h1>)
+- ! 탭 누르면 형태 완성되고, body 아래에 보여주고싶은 값 작성({{result}})
 ```html
 <!DOCTYPE html>
 <html lang="en">
