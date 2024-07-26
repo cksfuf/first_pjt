@@ -83,6 +83,8 @@ def index(request):
 
 12. html 생성
 - 위 로직에서 정의한 html 파일 만들기
+- 5번에서 생성한 앱(first_app)의 templates폴더에 html파일 생성
+- 파일 이름 은 .html 형식 `root.html`
 - ! 탭 누르면 형태 완성되고, body 아래에 보여주고싶은 값 작성({{result}})
 ```html
 <!DOCTYPE html>
