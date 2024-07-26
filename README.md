@@ -53,7 +53,7 @@ INSTALLED_APPS = [
 ```
 
 10. urls.py 경로 매핑
-- 1번에서 생성한 firt_pjt의 urls.py 들어가기
+- 1번에서 생성한 first_pjt의 urls.py 들어가기
 - 18번 줄 아래 from first_app import views(first_app을 지정해주기)
 - 20번 줄의 urlpatterns에 코드 작성
 - `path('', views.root)`: root 라는 기본 홈페이지 지정
@@ -95,10 +95,42 @@ def index(request):
     <title>Document</title>
 </head>
 <body>
-    <h1>{{result}}</h1>
+    <h1>여기는 root 입니다</h1>
 </body>
 </html>
 ```
 
 13. 결과 확인
 - http://127.0.0.1:8000/ 에 ctrl+클릭 하여 결과 확인
+
+
+
+### lotto 알려주는 페이지 만들기
+- urlpatterns 식에 path('lotto/', views.lotto), 추가
+- views.py 파일에 import random 하고 함수 만들기
+```python
+def lotto(request):
+    number = range(1, 46)
+    pick = sorted(random.sample(number, 6))
+    context = {
+        'pick': pick,
+    }
+
+    return render(request, 'lotto.html', context)
+
+```
+-(first_app)의 templates폴더에 html파일 생성
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>복권 추첨~</h1>
+    <h2>번호는 {{pick}}~</h2>
+</body>
+</html>
+```
